@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Adicionar um usuário</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input formControlName="name" required matInput placeholder="Nome completo">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input formControlName="cpf" required matInput placeholder="000.000.000-00">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" required matInput type="email" placeholder="email@email.com">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input formControlName="telefone" required matInput type="tel" placeholder="(00) 0000-0000"  pattern="([0-9]{2}) [0-9]{4}-[0-9]{4}">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sexo</mat-label>
+      <mat-select formControlName="sexo" placeholder="Sexo">
+        <mat-option value=""></mat-option>
+        <mat-option value="Feminino">Feminino</mat-option>
+        <mat-option value="Masculino">Masculino</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Data de nascimento</mat-label>
+      <input formControlName="dataNascimento" required matInput type="date">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+  <button mat-raised-button color="warn" (click)="addUser()">Salvar</button>
+</div>
