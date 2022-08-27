@@ -32,6 +32,10 @@ export class AppComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '35%'
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getAllUsers();
+      }
     })
   }
 
@@ -47,5 +51,16 @@ export class AppComponent implements OnInit {
           alert("Erro ao buscar os cadastros!")
         }
       })
+  }
+
+  editUser(element: any) {
+    this.dialog.open(DialogComponent, {
+      width: '35%',
+      data: element,
+    }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        this.getAllUsers();
+      }
+    })
   }
 }

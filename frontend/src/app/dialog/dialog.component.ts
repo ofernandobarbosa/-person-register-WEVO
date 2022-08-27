@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { MatDialogRef} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -10,8 +10,12 @@ import { MatDialogRef} from '@angular/material/dialog';
 export class DialogComponent implements OnInit {
 
   userForm!: FormGroup
+  actionBtn: string = "Salvar"
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private dialogRef : MatDialogRef<DialogComponent>) { }
+  constructor(private formBuilder: FormBuilder,
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) public editData : any,
+    private dialogRef: MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -22,22 +26,49 @@ export class DialogComponent implements OnInit {
       sexo: ['', Validators.required],
       dataNascimento: ['', Validators.required],
     })
-  }
 
-  addUser() {
-    if (this.userForm.valid) {
-      this.api.postUser(this.userForm.value)
-        .subscribe({
-          next: (res) => {
-            alert("Usuário cadastrado com sucesso!");
-            this.userForm.reset();
-            this.dialogRef.close('save');
-          },
-          error: () => {
-            alert("Erro ao adicionar o produto!");
-          }
-        })
+    if(this.editData){
+      this.actionBtn = "Editar"
+      this.userForm.controls['nome'].setValue(this.editData.nome);
+      this.userForm.controls['cpf'].setValue(this.editData.cpf);
+      this.userForm.controls['email'].setValue(this.editData.email);
+      this.userForm.controls['telefone'].setValue(this.editData.telefone);
+      this.userForm.controls['sexo'].setValue(this.editData.sexo);
+      this.userForm.controls['dataNascimento'].setValue(this.editData.dataNascimento);
     }
   }
 
+  addUser() {
+    if(!this.editData){
+      if (this.userForm.valid) {
+        this.api.postUser(this.userForm.value)
+          .subscribe({
+            next: (res) => {
+              alert("Usuário cadastrado com sucesso!");
+              this.userForm.reset();
+              this.dialogRef.close('save');
+            },
+            error: () => {
+              alert("Erro ao adicionar o produto!");
+            }
+          })
+      }
+    }else{
+      this.updateUser()
+    }
+  }
+
+  updateUser(){
+    this.api.putUser(this.userForm.value, this.editData._id)
+    .subscribe({
+      next:(res)=>{
+        alert("Usuário atualizado com sucesso!");
+        this.userForm.reset();
+        this.dialogRef.close('update');
+      },
+      error:()=>{
+        alert("Erro ao tentar atualizar informações do usuário!")
+      }
+    })
+  }
 }
