@@ -1,0 +1,18 @@
+version: '3.0'
+services:
+  frontend:
+    image: front/cadastro
+    depends_on:
+      - backend
+    ports:
+      - 4200:4200
+    volumes:
+      - ../frontend/:/app
+
+  backend:
+    image: back/cadastro
+    env_file: ../backend/src/.env
+    ports:
+      - 3000:3000
+    volumes:
+      - ../backend:/app/actions
