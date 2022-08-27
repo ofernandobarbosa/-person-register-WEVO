@@ -3,13 +3,13 @@ import userController from "../controllers/user.controller";
 
 const router = Router();
 
-// TODO: listar pontos de interesse da BD
+// lista todos os usuarios
 router.get('/all-users', userController.getAll);
-// TODO: adicionar novo ponto de interesse
+// cria usuario
 router.post('/user', userController.create);
-// TODO: atualizar ponto de interesse
+// atualiza usuário
 router.put('/user/:id', userController.update);
-// TODO: apagar ponto de interesse
+// deleta usuario
 router.delete('/user/:id', userController.delete);
 
 export default router;
