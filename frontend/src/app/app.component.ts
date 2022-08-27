@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '35%'
-    }).afterClosed().subscribe(val=>{
-      if(val === 'save'){
+    }).afterClosed().subscribe(val => {
+      if (val === 'save') {
         this.getAllUsers();
       }
     })
@@ -57,10 +57,23 @@ export class AppComponent implements OnInit {
     this.dialog.open(DialogComponent, {
       width: '35%',
       data: element,
-    }).afterClosed().subscribe(val=>{
-      if(val==='update'){
+    }).afterClosed().subscribe(val => {
+      if (val === 'update') {
         this.getAllUsers();
       }
     })
+  }
+
+  deleteUser(id: any) {
+    this.api.deleteUser(id)
+      .subscribe({
+        next: (res) => {
+          alert("Usuário excluído com sucesso!");
+          this.getAllUsers();
+        },
+        error: () => {
+          alert("Erro ao excluir o usuário")
+        }
+      })
   }
 }
