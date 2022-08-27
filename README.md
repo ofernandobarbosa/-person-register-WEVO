@@ -47,14 +47,18 @@ PS: Recomendamos utilizar Angular 2+, porém, utilize a linguagem de sua prefer�
 
 # 🚀 Tecnologias
 
-* Windows 11;
+* Windows 11 (wsl)
 * Docker
+* Typescript
+* Node.js
+* MongoDB
+* Nodemon
+* Express.js
+* Mongoose
+* Angular
+* CSS, HTML
 
 
 # 👨‍💻 Autor
 
 * [Fernando Oliveira Barbosa](https://github.com/ofernandobarbosa)
-
-# ✔ Release
-
-🔗 Confira [aqui](https://t.me/IFRS_RG_bot) a aplicação no Heroku.

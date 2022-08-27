@@ -1,66 +1,44 @@
-# 📝Teste Prático WEVO
+# 🧱 Backend
 
-<br>
-O objetivo dessa aplicação é expor os meus conhecimentos ao desenvolver, desde o backend ao frontend, uma aplicação "CRUD" (Create, Read, Update, Delete).
-Para informações detalhadas da aplicação acesse a [Documentação](#📝-documentação)
-<br><br>
+A aplicação está de acordo com os requisitos indicados na proposta do teste. Utilizando Node.js para compor o backend, Typescript, MongoDB Atlas como banco de dados através da ORM Mogoose, Express.js foi utilizado para compor as rotas do Node.js.
 
-# 🛠 Orientações do teste
+Foram criadas 4 rotas para a api que através delas o frontend consegue se comunicar com o banco de dados.
 
-## Instruções
+```javascript
+    // lista todos usuários
+    router.get('/all-users', userController.getAll);
+    // cria usuario
+    router.post('/user', userController.create);
+    // atualiza usuário
+    router.put('/user/:id', userController.update);
+    // deleta usuario
+    router.delete('/user/:id', userController.delete);
+```
 
-* Utilizar GIT para gerenciar o Projeto
-* Subir o código fonte para o seu repository Github
-* Opcional - Recomendamos utilizar [Docker](/Docker/) para cada aplicação (dockerfiles separados)
-<br><br>
+# 🚀 Como testar a aplicaçao
 
-## 🧱 [Backend](/backend/) - Exercícios
+Para rodar local utilizaremos do Docker como recurso, para isso basta seguir o processo abaixo:
 
-1. Utilize um banco de dados Relacional ou NoSQL e crie uma tabela/collection no Banco de Dados
-com os seguintes campos:
+### Clonar a branch do projeto
 
-        -> Id
-        -> Nome
-        -> CPF
-        -> Email
-        -> Telefone
-        -> Sexo
-        -> DataNascimento
+```
+git clone https://github.com/ofernandobarbosa/-person-register-WEVO
+```
 
-2. Expor um conjunto de Web APIs (REST/Json) utilizando ASP .NET ou NodeJS que
-possibilitem a manutenção do Cadastro de Usuários, com base na tabela criada no
-exercício. Estas APIs deverão possibilitar a Consulta, Inclusão, Atualização e Exclusão dos
-dados (CRUD).
+### Entrar no repositório
 
-3. Criar uma interface (orientação à objetos) e implementá-la no código, utilizando-a em pelo
-menos 2 classes diferentes.
-    * Exemplo: interface representando as ações descritas no exercício 2, com implementação para retorno do banco de dados e implementação para retorno de dados em memória.
-<br><br>
+```
+cd -- -person-register-WEVO/Docker
+```
 
-## 💻 [Frontend](/frontend/) - Atividade Opcional (diferencial)
+### Criando a imagem Docker e rodando o contêiner
+```bash
+$ docker build -f ./Dockerfile.back ../ -t back/cadastro && docker run -d -p 3000:3000 back/cadastro
+```
 
-Construir um front-end para o cadastro de usuários consumindo as APIs do exercício 2
-PS: Recomendamos utilizar Angular 2+, porém, utilize a linguagem de sua preferência.
-<br><br>
-
-# 📝 Documentação
-
-* [Backend](./backend/) da aplicação
-* [Frontend](./frontend/) da aplicação
-* [Docker](./Docker/)
-<br><br>
-
-# 🚀 Tecnologias
-
-* Windows 11;
-* Docker
 <br><br>
 
 # 👨‍💻 Autor
 
 * [Fernando Oliveira Barbosa](https://github.com/ofernandobarbosa)
 <br><br>
-
-# ✔ Release
-
-🔗 Confira [aqui](https://t.me/IFRS_RG_bot) a aplicação no Heroku.
