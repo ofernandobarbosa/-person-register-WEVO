@@ -47,16 +47,8 @@ PS: Recomendamos utilizar Angular 2+, porém, utilize a linguagem de sua prefer�
 
 # 🚀 Tecnologias
 
-* Windows 11 (wsl)
+* Windows 11;
 * Docker
-* Typescript
-* Node.js
-* MongoDB
-* Nodemon
-* Express.js
-* Mongoose
-* Angular
-* CSS, HTML
 
 
 # 👨‍💻 Autor
