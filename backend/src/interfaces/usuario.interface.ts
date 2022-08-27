@@ -6,5 +6,4 @@ export interface UserInterface{
     telefone: string;
     sexo: string;
     dataNascimento: Date;
-
 }
