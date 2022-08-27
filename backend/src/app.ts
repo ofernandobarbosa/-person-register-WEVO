@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import router from './routes/user.route';
 
 export class App {
     private express: express.Application;
@@ -9,9 +10,10 @@ export class App {
 
     constructor(){
         this.express = express();
-        this.listen();
         this.middlewares();
         this.database();
+        this.routes();
+        this.listen();
     }
 
     public getApp(): express.Application{
@@ -36,5 +38,9 @@ export class App {
         }).catch((error)=>{
             console.error(error)
         })
+    }
+
+    private routes():void{
+        this.express.use('/api', router)
     }
 }
