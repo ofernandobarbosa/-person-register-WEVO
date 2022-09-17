@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Adicionar um usuário</h1>
+<h1 mat-dialog-title>{{modalTitle}}</h1>
 <div mat-dialog-content>
   <form [formGroup]="userForm">
     <mat-form-field appearance="outline">
@@ -7,7 +7,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>CPF</mat-label>
-      <input formControlName="cpf" required matInput placeholder="000.000.000-00">
+      <input formControlName="cpf" required matInput mask="000.000.000-00||00.000.000/0000-00"
+        placeholder="000.000.000-00">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
@@ -15,7 +16,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Telefone</mat-label>
-      <input formControlName="telefone" required matInput type="tel" placeholder="(00) 0000-0000">
+      <input formControlName="telefone" required matInput type="tel" mask="(00) 0 0000-0000"
+        placeholder="(00) 0000-0000">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Sexo</mat-label>

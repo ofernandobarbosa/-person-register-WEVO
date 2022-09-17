@@ -9,18 +9,18 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   postUser(data: any) {
-    return this.http.post<any>("http://localhost:3000/api/user", data)
+    return this.http.post<any>("https://backend-ofernandobarbosa.cloud.okteto.net/api/user", data)
   }
 
   getAllUsers() {
-    return this.http.get<any>("http://localhost:3000/api/all-users")
+    return this.http.get<any>("https://backend-ofernandobarbosa.cloud.okteto.net/api/all-users")
   }
 
   putUser(data: any, id: string) {
-    return this.http.put<any>(`http://localhost:3000/api/user/${id}`, data)
+    return this.http.put<any>(`https://backend-ofernandobarbosa.cloud.okteto.net/api/user/${id}`, data)
   }
 
   deleteUser(id: string){
-    return this.http.delete<any>(`http://localhost:3000/api/user/${id}`)
+    return this.http.delete<any>(`https://backend-ofernandobarbosa.cloud.okteto.net/api/user/${id}`)
   }
 }

@@ -1,18 +1,26 @@
 version: '3.0'
 services:
   frontend:
-    image: front/cadastro
+    # image: front/cadastro
+    container_name: user-register
+    build:
+      context: ../
+      dockerfile: ./Docker/Dockerfile.front
     depends_on:
       - backend
     ports:
-      - 4200:4200
+      - 80:80
     volumes:
-      - ../frontend/:/app
+      - ./frontend/:/app
 
   backend:
-    image: back/cadastro
-    env_file: ../backend/src/.env
+    # image: back/cadastro
+    build:
+      context: ../
+      dockerfile: ./Docker/Dockerfile.back
+    environment: 
+      - PASSWD=6OZCk6UuyCDoHuhs
     ports:
       - 3000:3000
     volumes:
-      - ../backend:/app/actions
+      - ./backend:/app/actions

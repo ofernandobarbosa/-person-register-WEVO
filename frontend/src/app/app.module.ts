@@ -18,11 +18,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NgxMaskModule } from 'ngx-mask';
+import { CpfPipe } from './pipes/cpf.pipe';
+import { TelefonePipe } from './pipes/telefone.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    DialogComponent,
+    CpfPipe,
+    TelefonePipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
