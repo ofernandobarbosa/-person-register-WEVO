@@ -28,7 +28,7 @@ git clone https://github.com/ofernandobarbosa/-person-register-WEVO
 ### Entrar no repositório
 
 ```
-cd -- -person-register-WEVO/Docker
+cd person-register-WEVO/Docker
 ```
 
 ### Criando a imagem Docker e rodando o contêiner
