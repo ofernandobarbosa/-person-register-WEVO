@@ -10,6 +10,8 @@ Para informações detalhadas da aplicação acesse a [Documentação](#📝-doc
 * Subir o código fonte para o seu repository Github
 * Opcional - Recomendamos utilizar [Docker](/Docker/) para cada aplicação (dockerfiles separados)
 
+# ✔️ Release
+Link para testar a aplicação [Registro de pessoas](https://frontend-ofernandobarbosa.cloud.okteto.net/)
 
 ## 🧱 [Backend](/backend/) - Exercícios
 
